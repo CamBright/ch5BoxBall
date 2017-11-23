@@ -26,7 +26,12 @@ public class BouncingBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPosition;      // y position of ground
+    private final int groundPosition; 
+    private final int topPosition;
+    private final int rightPosition;
+    private final int leftPosition;
+    private String xDirection;
+    private String yDirection;// y position of ground
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
 
@@ -41,13 +46,18 @@ public class BouncingBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+                        int ground, int top, int right, int left, String yD, String xD, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
         color = ballColor;
         diameter = ballDiameter;
-        groundPosition = groundPos;
+        groundPosition = ground;
+        topPosition = top;
+        rightPosition = right;
+        leftPosition = left;
+        xDirection = xD;
+        yDirection = yD;
         canvas = drawingCanvas;
     }
 
@@ -75,16 +85,34 @@ public class BouncingBall
     {
         // remove from canvas at the current position
         erase();
-            
         // compute new position
-        ySpeed += GRAVITY;
-        yPosition += ySpeed;
-        xPosition +=2;
+        if(yDirection == "down" && xDirection == "right") {
+            yPosition += 2;
+            xPosition += 2;
+        } else if(yDirection == "down" && xDirection == "left") {
+            yPosition += 2;
+            xPosition -= 2;
+        } else if(yDirection == "up" && xDirection == "right") {
+            yPosition -= 2;
+            xPosition += 2;
+        } else if(yDirection == "up" && xDirection == "left") {
+            yPosition -= 2;
+            xPosition -= 2;
+        }
 
         // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
-            yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed + ballDegradation; 
+        if(yPosition >= groundPosition) {
+            yPosition = (int)(groundPosition);
+            yDirection = "up"; 
+        } else if(yPosition <= topPosition) {
+            yPosition = (int) (topPosition);
+            yDirection = "down";
+        } else if(xPosition >= rightPosition) {
+            xPosition = (int) (rightPosition);
+            xDirection = "left";
+        } else if(xPosition <= leftPosition) {
+            xPosition = (int) (leftPosition);
+            xDirection = "right";
         }
 
         // draw again at new position
