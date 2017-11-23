@@ -30,8 +30,8 @@ public class BouncingBall
     private final int topPosition;
     private final int rightPosition;
     private final int leftPosition;
-    private String xDirection;
-    private String yDirection;// y position of ground
+    private int xDirection;
+    private int yDirection;// y position of ground
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
 
@@ -46,7 +46,7 @@ public class BouncingBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int ground, int top, int right, int left, String yD, String xD, Canvas drawingCanvas)
+                        int ground, int top, int right, int left, int yD, int xD, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -86,16 +86,16 @@ public class BouncingBall
         // remove from canvas at the current position
         erase();
         // compute new position
-        if(yDirection == "down" && xDirection == "right") {
+        if(yDirection == 0 && xDirection == 0) {
             yPosition += 2;
             xPosition += 2;
-        } else if(yDirection == "down" && xDirection == "left") {
+        } else if(yDirection == 0 && xDirection == 1) {
             yPosition += 2;
             xPosition -= 2;
-        } else if(yDirection == "up" && xDirection == "right") {
+        } else if(yDirection == 1 && xDirection == 0) {
             yPosition -= 2;
             xPosition += 2;
-        } else if(yDirection == "up" && xDirection == "left") {
+        } else if(yDirection == 1 && xDirection == 1) {
             yPosition -= 2;
             xPosition -= 2;
         }
@@ -103,16 +103,16 @@ public class BouncingBall
         // check if it has hit the ground
         if(yPosition >= groundPosition) {
             yPosition = (int)(groundPosition);
-            yDirection = "up"; 
+            yDirection = 1; 
         } else if(yPosition <= topPosition) {
             yPosition = (int) (topPosition);
-            yDirection = "down";
+            yDirection = 0;
         } else if(xPosition >= rightPosition) {
             xPosition = (int) (rightPosition);
-            xDirection = "left";
+            xDirection = 1;
         } else if(xPosition <= leftPosition) {
             xPosition = (int) (leftPosition);
-            xDirection = "right";
+            xDirection = 0;
         }
 
         // draw again at new position

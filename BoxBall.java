@@ -10,13 +10,10 @@ import java.awt.Color;
 import java.awt.geom.*;
 public class BoxBall
 {
-    private Canvas myCanvas = new Canvas("BoxBall", 700, 700);
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    private Canvas myCanvas;
+    public BoxBall() {
+        this.myCanvas = new Canvas("BoxBall", 700, 700);
+    }
     public void CreateBoxBall() {
        
         myCanvas.setVisible(true);
@@ -29,8 +26,8 @@ public class BoxBall
         int ballDiameter = oRand.nextInt(20) + 10;
         int top = 50;
         int left = 50;
-        String xD = "right";
-        String yD = "down";
+        int xD = oRand.nextInt(2);
+        int yD = oRand.nextInt(2);
         
         BouncingBall oBall1 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
         oBall1.draw();

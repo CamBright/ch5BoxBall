@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=BoxBall
 comment1.params=
-comment1.target=void\ CreateBoxBall()
-comment1.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\n
-numComments=2
+comment1.target=BoxBall()
+comment2.params=
+comment2.target=void\ CreateBoxBall()
+numComments=3
