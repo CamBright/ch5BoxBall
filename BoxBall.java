@@ -27,18 +27,16 @@ public class BoxBall
         myCanvas.drawLine(50, 400, 50, 50);
         myCanvas.drawLine(550, 400, 550, 50);
         int ballDiameter = oRand.nextInt(20) + 10;
-        int ground = 400 - ballDiameter;
-        int top = 50 + ballDiameter;
-        int right = 550 - ballDiameter;
-        int left = 50 + ballDiameter;
+        int top = 50;
+        int left = 50;
         String xD = "right";
         String yD = "down";
         
-        BouncingBall oBall1 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, ground, top, right, left, yD, xD, myCanvas);
+        BouncingBall oBall1 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
         oBall1.draw();
         
         ballDiameter = oRand.nextInt(20) + 10;
-        BouncingBall oBall2 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, ground, top, right, left, yD, xD, myCanvas);
+        BouncingBall oBall2 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
         oBall2.draw();
         
         boolean finished =  false;
