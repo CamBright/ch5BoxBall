@@ -8,6 +8,7 @@
 import java.util.Random;
 import java.awt.Color;
 import java.awt.geom.*;
+import java.util.ArrayList;
 public class BoxBall
 {
     private Canvas myCanvas;
@@ -15,32 +16,101 @@ public class BoxBall
         this.myCanvas = new Canvas("BoxBall", 700, 700);
     }
     public void CreateBoxBall() {
-       
-        myCanvas.setVisible(true);
+        
         Random oRand = new Random();
-        Color ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
-        myCanvas.drawLine(50, 400, 550, 400);
-        myCanvas.drawLine(50, 50, 550, 50);
-        myCanvas.drawLine(50, 400, 50, 50);
-        myCanvas.drawLine(550, 400, 550, 50);
         int ballDiameter = oRand.nextInt(20) + 10;
         int top = 50;
         int left = 50;
         int xD = oRand.nextInt(2);
         int yD = oRand.nextInt(2);
         
-        BouncingBall oBall1 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
-        oBall1.draw();
-        
-        ballDiameter = oRand.nextInt(20) + 10;
-        BouncingBall oBall2 = new BouncingBall(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
-        oBall2.draw();
-        
+     Color ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall1 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall2 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall3 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall4 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall5 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall6 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall7 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall8 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall9 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall10 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall11 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall12 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall13 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall14 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall15 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall16 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
+     
+     ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
+     ballDiameter = oRand.nextInt(20) + 10;
+     BoxBounce oBall17 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
             oBall1.move();
             oBall2.move();
+            oBall3.move();
+            oBall4.move();
+            oBall5.move();
+            oBall6.move();
+            oBall7.move();
+            oBall8.move();
+            oBall9.move();
+            oBall10.move();
+            oBall11.move();
+            oBall12.move();
+            oBall13.move();
+            oBall14.move();
+            oBall15.move();
+            oBall16.move();
+            oBall7.move();
             // stop once ball has travelled a certain distance on x axis
         }
     }

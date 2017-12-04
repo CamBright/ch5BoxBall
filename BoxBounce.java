@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 
 /**
  * Class BouncingBall - a graphical ball that observes the effect of gravity. The ball
@@ -16,7 +17,7 @@ import java.awt.geom.*;
  * @version 2011.07.31
  */
 
-public class BouncingBall
+public class BoxBounce
 {
     private static final int GRAVITY = 3;  // effect of gravity
 
@@ -32,7 +33,7 @@ public class BouncingBall
     private final int leftPosition;
     private int xDirection;
     private int yDirection;// y position of ground
-    private Canvas canvas;
+    private Canvas myCanvas;
     private int ySpeed = 1;                // initial downward speed
 
     /**
@@ -45,7 +46,7 @@ public class BouncingBall
      * @param groundPos  the position of the ground (where the wall will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
      */
-    public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBounce(int xPos, int yPos, int ballDiameter, Color ballColor,
                         int ground, int top, int right, int left, int yD, int xD, Canvas drawingCanvas)
     {
         xPosition = xPos;
@@ -58,7 +59,7 @@ public class BouncingBall
         leftPosition = left;
         xDirection = xD;
         yDirection = yD;
-        canvas = drawingCanvas;
+        myCanvas = drawingCanvas;
     }
 
     /**
@@ -66,8 +67,8 @@ public class BouncingBall
      **/
     public void draw()
     {
-        canvas.setForegroundColor(color);
-        canvas.fillCircle(xPosition, yPosition, diameter);
+        myCanvas.setForegroundColor(color);
+        myCanvas.fillCircle(xPosition, yPosition, diameter);
     }
 
     /**
@@ -75,7 +76,7 @@ public class BouncingBall
      **/
     public void erase()
     {
-        canvas.eraseCircle(xPosition, yPosition, diameter);
+        myCanvas.eraseCircle(xPosition, yPosition, diameter);
     }    
 
     /**
@@ -83,21 +84,27 @@ public class BouncingBall
      **/
     public void move()
     {
+        Random oRand = new Random();
         // remove from canvas at the current position
         erase();
+        myCanvas.setVisible(true);
+        myCanvas.drawLine(50, 400, 550, 400);
+        myCanvas.drawLine(50, 50, 550, 50);
+        myCanvas.drawLine(50, 400, 50, 50);
+        myCanvas.drawLine(550, 400, 550, 50);
         // compute new position
         if(yDirection == 0 && xDirection == 0) {
-            yPosition += 2;
-            xPosition += 2;
+            yPosition += oRand.nextInt(3)+1;
+            xPosition += oRand.nextInt(3)+1;
         } else if(yDirection == 0 && xDirection == 1) {
-            yPosition += 2;
-            xPosition -= 2;
+            yPosition += oRand.nextInt(3)+1;
+            xPosition -= oRand.nextInt(3)+1;
         } else if(yDirection == 1 && xDirection == 0) {
-            yPosition -= 2;
-            xPosition += 2;
+            yPosition -= oRand.nextInt(3)+1;
+            xPosition += oRand.nextInt(3)+1;
         } else if(yDirection == 1 && xDirection == 1) {
-            yPosition -= 2;
-            xPosition -= 2;
+            yPosition -= oRand.nextInt(3)+1;
+            xPosition -= oRand.nextInt(3)+1;
         }
 
         // check if it has hit the ground
