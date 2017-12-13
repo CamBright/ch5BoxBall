@@ -3,25 +3,23 @@ import java.awt.geom.*;
 import java.util.Random;
 
 /**
- * Class BouncingBall - a graphical ball that observes the effect of gravity. The ball
- * has the ability to move. Details of movement are determined by the ball itself. It
- * will fall downwards, accelerating with time due to the effect of gravity, and bounce
- * upward again when hitting the ground.
+ * Class BoxBounce - Takes a ball, places it in a canvas with a rectangle 
+ * sorounding the balls. The balls bounce on the rectangle and change
+ * directions based on their initial speed, direction, and which wall they 
+ * bounce off of.
  *
  * This movement can be initiated by repeated calls to the "move" method.
  * 
  * @author Michael Kölling (mik)
  * @author David J. Barnes
+ * @author Cameron Brightwell
  * @author Bruce Quig
  *
- * @version 2011.07.31
+ * @version 2017d
  */
 
 public class BoxBounce
 {
-    private static final int GRAVITY = 3;  // effect of gravity
-
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;

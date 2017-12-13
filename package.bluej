@@ -1,17 +1,17 @@
 #BlueJ package file
-dependency1.from=BoxBounce
+dependency1.from=BoxBall
 dependency1.to=Canvas
 dependency1.type=UsesDependency
 dependency2.from=BoxBall
-dependency2.to=Canvas
+dependency2.to=BoxBounce
 dependency2.type=UsesDependency
-dependency3.from=BoxBall
-dependency3.to=BoxBounce
+dependency3.from=BoxBounce
+dependency3.to=Canvas
 dependency3.type=UsesDependency
 editor.fx.0.height=722
 editor.fx.0.width=800
-editor.fx.0.x=424
-editor.fx.0.y=58
+editor.fx.0.x=388
+editor.fx.0.y=195
 objectbench.height=101
 objectbench.width=776
 package.divider.horizontal=0.6

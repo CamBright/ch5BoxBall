@@ -1,9 +1,12 @@
 
 /**
- * Write a description of class BoxBall here.
+ * The class BoxBall creates multiple balls with random atributes such as direction, 
+ * placement and color. Ite starts by creating a canvas which the balls can
+ * be displayed on and then it passes the balls onto box bounce class which helps
+ * the balls move around the canvas created.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Cameron Brightwell
+ * @version 2017
  */
 import java.util.Random;
 import java.awt.Color;
@@ -19,8 +22,9 @@ public class BoxBall
         this.myCanvas = new Canvas("BoxBall", 700, 700);
     }
     /**
-     * Create balls with random positions, size, and colors as well as 
+     * Create balls with random positions, size, and colors as well as. 
      * limitations on where and how they bounce.
+     * Move the balls.
      */
     public void CreateBoxBall() {
         
@@ -32,7 +36,7 @@ public class BoxBall
         int xD = oRand.nextInt(2);
         int yD = oRand.nextInt(2);
       
-        //
+        // Create balls with randomized atributes, speed, and direction.
         Color ballColor = new Color(oRand.nextInt(255), oRand.nextInt(255), oRand.nextInt(255));
         ballDiameter = oRand.nextInt(20) + 10;
         BoxBounce oBall1 = new BoxBounce(oRand.nextInt(550) + 50, oRand.nextInt(400) + 50, ballDiameter, ballColor, (400 - ballDiameter), top, (550 - ballDiameter), left, yD, xD, myCanvas);
