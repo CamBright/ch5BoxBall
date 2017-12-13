@@ -2,6 +2,8 @@
 comment0.target=BoxBall
 comment1.params=
 comment1.target=BoxBall()
+comment1.text=\n\ Create\ a\ canvas\n
 comment2.params=
 comment2.target=void\ CreateBoxBall()
+comment2.text=\n\ Create\ balls\ with\ random\ positions,\ size,\ and\ colors\ as\ well\ as\ \n\ limitations\ on\ where\ and\ how\ they\ bounce.\n
 numComments=3

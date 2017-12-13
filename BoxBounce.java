@@ -43,7 +43,8 @@ public class BoxBounce
      * @param yPos  the vertical coordinate of the ball
      * @param ballDiameter  the diameter (in pixels) of the ball
      * @param ballColor  the color of the ball
-     * @param groundPos  the position of the ground (where the wall will bounce)
+     * @param ground, top, right and left the position of the ground 
+     * (where the ball will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BoxBounce(int xPos, int yPos, int ballDiameter, Color ballColor,
@@ -80,19 +81,20 @@ public class BoxBounce
     }    
 
     /**
-     * Move this ball according to its position and speed and redraw.
+     * Move this ball according to its position, speed, redraw and redirection.
      **/
     public void move()
     {
         Random oRand = new Random();
         // remove from canvas at the current position
         erase();
+        // create box
         myCanvas.setVisible(true);
         myCanvas.drawLine(50, 400, 550, 400);
         myCanvas.drawLine(50, 50, 550, 50);
         myCanvas.drawLine(50, 400, 50, 50);
         myCanvas.drawLine(550, 400, 550, 50);
-        // compute new position
+        // compute new direction by determining which wall was hit.
         if(yDirection == 0 && xDirection == 0) {
             yPosition += oRand.nextInt(3)+1;
             xPosition += oRand.nextInt(3)+1;
@@ -107,7 +109,7 @@ public class BoxBounce
             xPosition -= oRand.nextInt(3)+1;
         }
 
-        // check if it has hit the ground
+        // check if it has hit the a wall.
         if(yPosition >= groundPosition) {
             yPosition = (int)(groundPosition);
             yDirection = 1; 
